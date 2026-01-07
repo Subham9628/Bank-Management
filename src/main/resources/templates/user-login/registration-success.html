@@ -1,0 +1,84 @@
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     header
+        {
+          width:100%;
+          height: auto;
+          background-color: blue;
+        }
+       .head 
+        {
+           margin:0px;
+           padding:20px;
+           text-align:center;
+           color: white;
+           font-style:italic;
+           font-size: 40px;
+           font-weight: bold;
+        }
+           .container {
+           margin:50px 0px 180px 500px;
+            height:auto;
+            width:400px;
+            text-align: center;
+            background-color:white;
+            padding: 40px 60px;
+            border-radius: 15px;
+
+        }
+
+        h1 {
+            color:lightgreen;
+            margin-bottom: 20px;
+        }
+        h2
+        {
+           color:green;
+        }
+        
+
+        p {
+            font-size: 18px;
+            color:green;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color:green;
+            color:white;
+            padding: 10px 25px;
+            border-radius: 5px;
+            
+        }
+
+        a:hover {
+            background-color:lightgreen;
+        }
+        </style>
+       
+</head>
+<body>
+     <header>
+        <p class="head">WELCOME TO TrustLink Bank</p>
+      </header>
+       <div class="container">
+        <h1>Registration Successful!</h1>
+        <p>Thank you for registering. Your account has been created successfully.</p>
+        <h2>Your Account Number <br></h2>
+        <a th:href="@{/}">Go to Login</a>
+    </div>
+	<div th:insert="~{@{reusable-code/footer}}"></div>
+</body>
+</html>
+
+
+
+

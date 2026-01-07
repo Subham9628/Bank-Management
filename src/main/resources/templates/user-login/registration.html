@@ -1,0 +1,183 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin:0px;
+            height:100vh;
+            width: 100vw;
+            background: linear-gradient(135deg, #ff9966, #ff5e62);
+        }
+          header
+        {
+          width:100%;
+          height: auto;
+          background-color: blue;
+        }
+         .head 
+        {
+           margin:0px;
+           padding:20px;
+           text-align:center;
+           color: white;
+           font-style:italic;
+           font-size: 40px;
+           font-weight: bold;
+        }
+        .main1
+        {
+          height:800px;
+          width: 700px;
+          margin-left: 450px;
+          border: 5px solid lightblue;
+          border-radius: 20px;
+          background-color: white;
+        
+        }
+        img
+        {
+         
+            display: inline;
+            height:100px;
+            width: 100px;
+            margin-top: 10px;
+        }
+        h1
+        {   
+            margin-left:100px;
+            display: inline;
+            position: absolute;
+             
+        }
+        input
+        {
+            padding-left: 10px;
+            height: 30px;
+            width: 380px;   
+            font-size: 20px;
+            border: 2px solid black;
+            border-radius:10px;
+        }
+        input:hover
+        {
+          border:2px solid lightgreen;
+         
+        }
+        span
+        {
+            font-size: 20px;
+        }      
+        td
+        {
+          height:20px;
+          padding: 10px;
+          font-size: 20px;
+          font-weight: bold;
+          white-space: nowrap;
+        }
+        table
+        {
+          margin-left:10px;
+          border-collapse: collapse;
+          width:500px;
+        }
+        .submit
+        {
+          padding:10px 50px 10px 50px;
+          background-color:blue;
+          border-radius:20px;
+          color:white;
+          font-size:20px; 
+        }
+        .submit:hover
+        {
+          background-color: navy;
+        }
+        .button
+        {
+          padding:10px 30px 10px 30px;
+          color:white;
+          font-size:20px;
+          background-color: gray;
+          margin-left:100px;
+          border-radius: 20px;
+        }  
+       #message 
+       {
+         font-size:15px;
+       }
+        #confirmmessage 
+       {
+         font-size:15px;
+       }
+    
+    </style>
+ 
+</head>
+<body>    
+      <header>
+        <p class="head">WELCOME TO TrustLink Bank</p>
+      </header>
+        <div class="main1">
+        <img src="images/bank.jpg" alt="bank">
+         <h1 >REGISTRATION  FORM </h1>
+         <form action="registration-success" method="post">
+
+          <table>
+          <tr>
+             <td> <label > User Id:</label></td>
+             <td><input type="text" name="userId" required ></td>
+          </tr>
+          <tr>
+             <td> <label> Password:</label></td>
+             <td><input id="password"  type="password" name="password" required onkeyup="validPassword()"><p id="message"></p></td>
+          </tr>
+           <tr>
+             <td> <label >Confirm Password:</label></td>
+             <td><input id="confirmpassword"type="password" name="confirmpassword" required onkeyup="validMatch()"><p id="confirmmessage"></p></td>
+          </tr>
+          <tr >
+             <td> <label > Full Name:</label></td>
+             <td><input type="text" name="fullName" required ></td>
+          </tr>
+          <tr >
+             <td><label> Father's Name:</label></td>
+             <td> <input type="text" name="fatherName" required></td>
+          </tr>
+          <tr>
+             <td><label>Gender:</label> </td>
+             <td ><input type="radio" name="gender" value="MALE" required style="width: 30px;height: 20px;margin-left:0px" ><span>Male</span> 
+                  <input type="radio" name="gender" value="FEMALE" required style="width: 30px;height: 20px; margin-left: 50px;"  ><span>Female</span>
+				  <input type="radio" name="gender" value="OTHER" required style="width: 30px;height: 20px; margin-left: 50px;"  ><span>Other</span></td>
+          </tr>
+           <tr>
+             <td><label> Date of Birth:</label></td>
+             <td> <input type="date" name="dateOfBirth" required></td>
+          </tr>
+           <tr >
+             <td><label>Email Address:</label></td>
+             <td> <input type="email" name="emailId" required></td>
+          </tr>
+           <tr>
+             <td><label> Mobile Number:</label></td>
+             <td><input type="tel" name="mobileNo"  maxlength="10" pattern="[0-9]{10}" placeholder="Enter 10-digit mobile number"
+			        required oninput="this.value=this.value.replace(/[^0-9]/g,'')"></td>
+          </tr>
+           <tr>
+             <td><label>Address:</label></td>
+             <td> <input type="text" name="address" required></td>
+          </tr>   
+            <tr>
+             <td><button class="submit" type="submit"  >Register User</button></td>
+             <td><button class="button" type="button" onclick="history.back()">Cancel</button></td>
+          </tr>        
+          </table>
+         </form>        
+        </div>
+        <script th:src="@{JS/password.js}"></script>
+		<div th:insert="~{@{reusable-code/footer}}"></div>
+</body>
+</html>

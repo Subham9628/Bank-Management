@@ -1,0 +1,48 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Management Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f4f4f9;
+      
+      background-repeat: no-repeat;
+      background-size: cover;
+    } 
+    .footer-contact 
+    {
+      background-color: blue;
+      margin:0px;
+    } 
+    .footer-contact p {
+      margin: 0px;
+      font-size: 17px;
+      color:white;
+    }
+    footer
+    {
+       margin-top:0px;
+       position:relative;
+       bottom: 0;
+       left: 0; 
+       width: 100%;
+       color: white;
+       text-align: center;
+    }
+  </style>
+</head>
+<body th:style="'background-image:url(' + @{/images/background.jpg} + ')'">
+  <footer>
+   <div class="footer-contact">
+      <h4 style="margin-bottom: 10px;margin-top:0px;">Contact Us</h4>
+      <p><i class="fa fa-envelope"></i> subhamkesarwani7800@gmail.com</p>
+      <p><i class="fa fa-map-marker"></i>  +91 9628543807  Prayagraj (UP) India</p>
+      <p style="margin-top: 10px;">� 2025 TrustLink Bank. All Right Reserved.</p>
+    </div>
+  </footer>
+
+</html>

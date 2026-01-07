@@ -1,0 +1,123 @@
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, html 
+        {
+            margin: 0;
+            padding: 0;
+        }
+        header
+        {
+          width:100%;
+          height: auto;
+          background-color: blue;
+        }
+        .form
+        {
+          
+          position: relative;
+          text-align:center;
+          padding-top:20px;
+          height: 350px;
+          width: 600px;
+          left: 50px;
+          top: 100px;
+          background-color:white;
+          border-radius: 10px;
+          margin-left:400px;
+          margin-bottom: 170px;
+        }
+        label
+        {
+            color:blue;
+            font-size: 30px;
+          
+        }
+        header p
+        {
+           margin:0px;
+           padding:20px;
+           text-align:center;
+           color: white;
+           font-style:italic;
+           font-size: 40px;
+           font-weight: bold;
+        }
+        input
+        {
+        
+           margin-top:20px;
+           margin-left: 50px;
+           height: 35px;
+           width: 200px;
+           font-size:20px;
+           text-align: center;
+           border:2px solid black;
+           border-radius: 20px;
+        }
+        input:hover
+        {
+           border:2px solid aqua;
+        }
+        button
+        {
+          margin-left: 20px;
+          margin-top:10px;
+          margin-bottom: 20px;
+          font-size: 25px;
+          height: 40px;
+          width: 150px;
+          text-align: center;
+          background-color: blue;
+          border-radius: 20px;
+        }
+        button:hover
+        {
+           color:white;
+        }
+        a
+        {
+          padding:5px 20px 5px 20px;
+          margin-bottom: 20px;
+          font-size: 25px;
+          height: 45px;
+          width: 150px;
+          color:black;
+          text-decoration:none;
+          text-align: center;
+          background-color: blue;
+          border-radius: 20px;
+        }
+        a:hover
+        {
+           color:white;
+        }
+    </style>
+      
+</head>
+<body>
+      <header>
+        <p>WELCOME TO TrustLink Bank</p>
+      </header>
+      <div class="form">
+      <form  method="post">
+        <label >User Id </label>	
+        <input type="text" name="userid" style="margin-left:110px" placeholder="User Id"required ><br><br>
+        <label >Password</label>
+        <input type="password" name="password" style="margin-left:75px" placeholder="Password" required><br><br>
+    	 
+    	   <button type="submit">login</button>
+         <a th:href="@{registration}"  style="margin-left:30px">Registration</a><br>
+         <a style="margin-left:40px; padding:5px 50px 5px 50px;" >forgot Password</a>
+      </form>
+      </div>     
+     <div th:insert="~{@{reusable-code/footer}}"></div>
+</body>
+</html>
+     
+
