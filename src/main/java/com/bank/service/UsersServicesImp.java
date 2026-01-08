@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bank.entity.Users;
-import com.bank.repository.BankRepository;
+import com.bank.repository.UsersRepository;
 
 @Service
-public class BankServicesImp  implements BankServices
+public class UsersServicesImp  implements UsersServices
 {
    @Autowired
-   private BankRepository repo;
+   private UsersRepository repo;
    
    @Override
    public void save(Users user) 

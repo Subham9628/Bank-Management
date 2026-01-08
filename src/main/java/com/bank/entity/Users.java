@@ -1,5 +1,9 @@
 package com.bank.entity;
 
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -18,7 +22,8 @@ public class Users
    private String fatherName;
    @Enumerated(EnumType.STRING)
    private Gender gender;
-   private String dataOfBirth;
+   @DateTimeFormat(pattern = "dd-MM-yyyy")
+   private LocalDate dateOfBirth;
    private String emailId;
    @Column(length = 10)
    private String mobileNo;
@@ -53,12 +58,13 @@ public class Users
    public void setGender(Gender gender) {
 	this.gender = gender;
    }
-   public String getDataOfBirth() {
-	return dataOfBirth;
-   }
-   public void setDataOfBirth(String dataOfBirth) {
-	this.dataOfBirth = dataOfBirth;
-   }
+   public LocalDate getDateOfBirth() {
+	    return dateOfBirth;
+	}
+
+	public void setDateOfBirth(LocalDate dateOfBirth) {
+	    this.dateOfBirth = dateOfBirth;
+	}
    public String getEmailId() {
 	return emailId;
    }
