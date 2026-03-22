@@ -22,8 +22,6 @@ public class BankController
 	private AccountsServices accountServcies;
 	@Autowired
 	//private AccountRepository accountRepo;
-
-   
    @GetMapping("/registration")
    public String registrationForm()
    {

@@ -105,18 +105,18 @@
         <p>WELCOME TO TrustLink Bank</p>
       </header>
       <div class="form">
-      <form  method="post">
+      <form action="doLogin" method="post">
         <label >User Id </label>	
         <input type="text" name="userid" style="margin-left:110px" placeholder="User Id"required ><br><br>
         <label >Password</label>
         <input type="password" name="password" style="margin-left:75px" placeholder="Password" required><br><br>
     	 
-    	   <button type="submit">login</button>
+    	     <button type="submit">login</button>
          <a th:href="@{registration}"  style="margin-left:30px">Registration</a><br>
          <a style="margin-left:40px; padding:5px 50px 5px 50px;" >forgot Password</a>
       </form>
       </div>     
-     <div th:insert="~{@{reusable-code/footer}}"></div>
+     <div th:insert="~{@{reusable-code/footer1}}"></div>
 </body>
 </html>
      
