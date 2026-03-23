@@ -9,12 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bank.entity.Accounts;
 import com.bank.entity.Users;
-import com.bank.repository.AccountRepository;
 import com.bank.service.AccountsServices;
 import com.bank.service.UsersServices;
 
 @Controller
-public class BankController 
+public class RegistrationController 
 {
 	@Autowired
     private UsersServices usersService;
@@ -31,7 +30,6 @@ public class BankController
    public String success(@ModelAttribute Users user,Model model)
    {
 	   usersService.save(user);
-	 
        Accounts account=new Accounts();
        String userId=user.getUserId();
        account.setAmount(0);

@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
@@ -11,15 +12,15 @@ import jakarta.persistence.Table;
 public class Accounts 
 {
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
+   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "acc_seq")
+   @SequenceGenerator(
+           name = "acc_seq",
+           sequenceName = "account_sequence",
+           initialValue = 2026000000,
+           allocationSize = 1)
    private long accountNo;
    private String userId;
    private double amount;
-   
-   public Accounts()
-   {
-	
-   }
    public long getAccountNo() {
 	return accountNo;
    }

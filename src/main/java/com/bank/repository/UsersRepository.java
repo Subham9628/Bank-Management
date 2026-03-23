@@ -6,5 +6,5 @@ import com.bank.entity.Users;
 
 public interface UsersRepository extends JpaRepository<Users, String>
 {
-
+   
 }
