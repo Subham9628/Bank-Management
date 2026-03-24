@@ -24,7 +24,7 @@ public class RegistrationController
    @GetMapping("/registration")
    public String registrationForm()
    {
-	   return "user-login/registration";
+	   return "registration/registration";
    }
    @PostMapping("/registration-success")
    public String success(@ModelAttribute Users user,Model model)
@@ -37,7 +37,7 @@ public class RegistrationController
 	   Accounts accountsave=accountServcies.save(account);
 	   System.out.println(accountsave.getAccountNo());
 	   model.addAttribute("AccountNo",accountsave.getAccountNo());
-	   return "user-login/registration-success";
+	   return "registration/registration-success";
    }
    
 }

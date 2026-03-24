@@ -10,12 +10,17 @@ import com.bank.repository.UsersRepository;
 public class UsersServicesImp  implements UsersServices
 {
    @Autowired
-   private UsersRepository repo;
+   private UsersRepository userRepo;
    
    @Override
    public void save(Users user) 
    {
-       repo.save(user);
+       userRepo.save(user);
    }
+   public boolean validateUser(String userId, String password) 
+   {
+	   return userRepo.existsByUserIdAndPassword(userId,password);
+   }
+   
    
 }

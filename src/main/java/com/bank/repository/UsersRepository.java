@@ -6,5 +6,6 @@ import com.bank.entity.Users;
 
 public interface UsersRepository extends JpaRepository<Users, String>
 {
+	boolean existsByUserIdAndPassword(String userId, String password);
    
 }
