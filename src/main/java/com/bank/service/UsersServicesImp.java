@@ -21,6 +21,12 @@ public class UsersServicesImp  implements UsersServices
    {
 	   return userRepo.existsByUserIdAndPassword(userId,password);
    }
+   @Override
+   public String getUserName(String userId) 
+   {
+	  Users user=userRepo.findById(userId).orElse(null);
+	  return user.getFullName();
+   }
    
    
 }

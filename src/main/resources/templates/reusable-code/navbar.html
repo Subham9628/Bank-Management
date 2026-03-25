@@ -1,11 +1,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bank Management Dashboard</title>
-
   <style>
     body {
       margin: 0;
@@ -60,7 +57,7 @@
     .name p
     {
        margin-left:30px;
-       font-size:18px;
+       font-size:20px;
        color:lightgreen;
     }
     select
@@ -75,16 +72,14 @@
    {
      padding:10px ;
    }
-    
-   
   </style>
-
 </head>
 <body>
   <header>
  <div style="font-size:20px;">TrustLink Bank</div>
    <nav class="name">
-          ////////
+        <p th:text="${session.userName}">User Name</p>
+		<p th:text="${session.accountNo}">account Number</p>
     </nav>  
     <nav class="login">
           <select onchange="goToPage1(this)">
@@ -103,9 +98,6 @@
       <a href="">Balance Enquiry</a>
       <a href="" class="logout">Logout</a>
     </nav>
-     
   </header>
-  
 </body>
-
 </html>

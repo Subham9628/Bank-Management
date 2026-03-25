@@ -1,5 +1,6 @@
 package com.bank.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,9 +17,11 @@ public class Accounts
    @SequenceGenerator(
            name = "acc_seq",
            sequenceName = "account_sequence",
-           initialValue = 2026000000,
+           initialValue = 2026000001,
            allocationSize = 1)
+
    private long accountNo;
+   @Column(unique=true)
    private String userId;
    private double amount;
    public long getAccountNo() {

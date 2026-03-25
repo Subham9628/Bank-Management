@@ -10,11 +10,17 @@ import com.bank.repository.AccountRepository;
 public class AccountsServicesimp implements AccountsServices
 {
     @Autowired
-    private AccountRepository repo;
+    private AccountRepository accountRepo;
 	@Override
 	public Accounts save(Accounts account) 
 	{
-		return repo.save(account);
+		return accountRepo.save(account);
+	}
+	@Override
+	public long getAccountNo(String userId) 
+	{
+		Accounts account=accountRepo.findByUserId(userId);
+		return account.getAccountNo();
 	}
 	
   

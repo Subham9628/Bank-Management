@@ -107,7 +107,7 @@
       <div class="form">
       <form action="login-user" method="post">
         <label >User Id </label>	
-        <input type="text" name="userid" style="margin-left:110px" placeholder="User Id"required ><br><br>
+        <input type="text" name="userId" style="margin-left:110px" th:value="${userId}" placeholder="User Id"required ><br><br>
         <label >Password</label>
         <input type="password" name="password" style="margin-left:75px" placeholder="Password" required><br><br>
     	 
@@ -115,6 +115,7 @@
          <a th:href="@{registration}"  style="margin-left:30px">Registration</a><br>
          <a style="margin-left:40px; padding:5px 50px 5px 50px;" >forgot Password</a>
       </form>
+	   <div style="color: red; font-size: 20px;font-weight: bold; font-style: italic;" th:text="${msg}"></div>
       </div>     
      <div th:insert="~{@{reusable-code/footer1}}"></div>
 </body>

@@ -8,5 +8,7 @@ public interface UsersServices
 	void save(Users user);
 
 	boolean validateUser(String userId, String password);
+
+	String getUserName(String userId);
    
 }

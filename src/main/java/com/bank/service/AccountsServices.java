@@ -7,5 +7,7 @@ public interface AccountsServices
 
 	Accounts save(Accounts account);
 
+	long getAccountNo(String userId);
+
 
 }

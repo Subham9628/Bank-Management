@@ -6,5 +6,5 @@ import com.bank.entity.Accounts;
 
 public interface AccountRepository extends JpaRepository<Accounts, Long>  
 {
-
+	Accounts findByUserId(String userId);
 }
