@@ -23,5 +23,9 @@ public class AccountsServicesimp implements AccountsServices
 		return account.getAccountNo();
 	}
 	
-  
+	public double fetchBalance(long accountNo) 
+	{
+		Accounts account=accountRepo.findById(accountNo).orElse(null);
+		return account.getAmount();
+	}
 }

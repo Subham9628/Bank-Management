@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+  .container
+  {
+     margin:30px 500px 160px 500px;
+     height:200px;
+     width :400px;
+     background-color: lightgreen;
+     border-radius: 20px;
+     text-align:center;
+  }
+  .card-title
+  {
+    background-color: green;
+    font-size: 30px;
+    margin:10px 0px;
+  }
+  .text-success
+  {
+    color:green;
+    font-size: 30px;
+    
+   }
+   button
+   {
+      background-color: gray;
+      border-radius: 20px;
+      font-size: 20px;
+      padding:5px 10px;
+    }
+</style> 
+<body>
+           <div th:insert="~{@{reusable-code/navbar}}"></div>
+ 		   <div class="container">
+					<p class="card-title">Your Account Balance</p>
+					<p class="text-success" th:text="${amount}">	&#8377;</p>
+					<button type="button" onclick="history.back()">Back Home</button>
+				</div>
+        <div th:insert="~{@{reusable-code/footer2}}"></div>
+		<div th:insert="~{@{reusable-code/footer1}}"></div>  
+</body>
+</html>

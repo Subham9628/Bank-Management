@@ -9,5 +9,7 @@ public interface AccountsServices
 
 	long getAccountNo(String userId);
 
+   double fetchBalance(long accountNo);
+
 
 }
