@@ -1,0 +1,98 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+.container
+{ 
+  border:10px solid lightgreen;
+  border-radius:20px;
+  height:300px;
+  width:500px;
+  margin:30px 500px 50px 500px;
+  background-color: white;
+}
+.head
+{   
+    margin:0px;
+    text-align:center;
+    padding:5px ;
+    background-color: green;
+    font-size:30px;
+}
+td ,th{
+  padding:5px 20px 5px 0px;
+  font-size:20px;
+  text-align: left;
+ }
+ td
+ {
+   color:green;
+ }
+ .table
+ {
+   width:500px;  
+ }
+ .home
+ {
+   background-color: gray;
+   padding:5px 10px;
+   border-radius:20px;
+   color:black;
+    text-decoration:none;
+    margin-left:20px;
+ }
+ .download
+ {
+   background-color:blue;
+   padding:5px 10px;
+   border-radius: 20px;
+   color:black;
+   text-decoration:none;
+ }
+ .download:hover
+ {
+   background-color:navy;
+ }
+</style>
+<body>
+  <div th:insert="~{reusable-code/navbar}"></div>
+       <div class="container">
+   		    
+               <p class=head> Deposit Money Success</p>
+            
+             		<table class="table" >
+            		  <tr>
+            		    <th>From Account</th>
+            		    <td th:text="${session.accountNo}"></td>
+            		  </tr>
+            		  <tr>
+            		    <th>To Account</th>
+            		    <td>Self</td>
+            		  </tr>
+            		  <tr>
+            		    <th>Account holder</th>
+            		    <td th:text="${session.userName}"></td>
+            		  </tr>
+            		  <tr>
+            		    <th>Amount</th>
+            		    <td class="text-success" th:text="${money}">&#8377;</td>
+            		  </tr>
+            		  <tr>
+            		    <th>Date and Time</th>
+            		    <td><span th:text="${info.date}"></span><span style='margin-left:4px' th:text="${info.time}"></span></td>
+            		  </tr>
+            		  <tr>
+            		    <th>Transaction Type</th>
+            		    <td class="text-success">Credit</td>
+            		  </tr>
+            		    <tr>
+            		    <th><a  th:href="@{/}"  class="home">Back Home</a></th>
+            		    <td><a th:href="downloadreceipt" class="download">Download Receipt</a></td>
+            		  </tr>
+            		</table>
+            </div>
+			<div th:insert="~{reusable-code/footer2}"></div>
+			<div th:insert="~{reusable-code/footer1}"></div>
+
+   </body>
+</html>
+   
+   

@@ -81,21 +81,21 @@
         <p th:text="${session.userName}">User Name</p>
 		<p th:text="${session.accountNo}">account Number</p>
     </nav>  
-    <nav class="login">
-          <select onchange="goToPage1(this)">
+    <nav class="login">"
+          <select onchange="location=this.value">
           <option value="">Customer Management</option>
           <option value="viewdetails.jsp">View Customer Details</option>
          <option value="updatecustomer.jsp">Update Customer Information</option>
          <option value="closecustomer.jsp">Close Customer Account</option>
        </select> 
-      <select onchange="goToPage2(this)"> 
+      <select onchange="location=this.value"> 
       <option value="">Transaction</option>
-        <option value="deposite.jsp">Deposite Money</option>
+        <option th:value="@{/deposite-money}">Deposite Money</option>
          <option value="withdraw.jsp">Withdraw Money</option>
           <option value="fundtransfer.jsp">Fund Transfer</option>
            <option value="ministatements.jsp">Mini Statement</option>
        </select>
-      <a th:href="@{balance}">Balance Enquiry</a>
+      <a th:href="@{/balance}">Balance Enquiry</a>
       <a href="" class="logout">Logout</a>
     </nav>
   </header>
