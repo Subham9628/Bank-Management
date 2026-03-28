@@ -81,15 +81,15 @@
         <p th:text="${session.userName}">User Name</p>
 		<p th:text="${session.accountNo}">account Number</p>
     </nav>  
-    <nav class="login">"
+    <nav class="login">
           <select onchange="location=this.value">
-          <option value="">Customer Management</option>
+          <option >Customer Management</option>
           <option value="viewdetails.jsp">View Customer Details</option>
          <option value="updatecustomer.jsp">Update Customer Information</option>
          <option value="closecustomer.jsp">Close Customer Account</option>
        </select> 
       <select onchange="location=this.value"> 
-      <option value="">Transaction</option>
+      <option>Transaction</option>
         <option th:value="@{/deposite-money}">Deposite Money</option>
          <option value="withdraw.jsp">Withdraw Money</option>
           <option value="fundtransfer.jsp">Fund Transfer</option>

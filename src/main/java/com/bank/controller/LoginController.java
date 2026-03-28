@@ -3,6 +3,7 @@ package com.bank.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bank.service.AccountsServices;
@@ -18,10 +19,17 @@ public class LoginController
    
    @Autowired
    private AccountsServices accountService; 
+   @GetMapping("/login-page")
+   public String login()
+   {
+	   return "/user-login/login-form";
+   }
+   
    @PostMapping("/login-user")
    public String loginUser(String userId , String password,Model model,HttpSession session)
    {
 	   boolean isValid=userService.validateUser(userId,password);
+	   
 	   if(isValid)
 	   {   
 		   String userName=userService.getUserName(userId);

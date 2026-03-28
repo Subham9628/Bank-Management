@@ -59,19 +59,19 @@
   </style>
 </head>
 <body>
-      <div th:insert="~{@{reusable-code/navbar}}"></div>
+      <div th:insert="~{reusable-code/navbar}"></div>
       <form action="success-deposite" method="post">
      <div class="space">
         <div class="head"><h1 style="color:blue;">Deposite Money</h1></div>
         <label>Enter Money</label>  
         <input  type="number" placeholder="Enter Money" name="money" required><br>
-        <a th:href="@{home/home}" id="back">Back Home </a>
+        <a th:href="@{/}" id="back">Back Home </a>
         <button type="submit" value="send" id="deposite">Deposite </button>
     </div>
     </form>
    <footer>
-   <div th:insert="~{@{reusable-code/footer2}}"></div>
-   <div th:insert="~{@{reusable-code/footer1}}"></div>
+   <div th:insert="~{reusable-code/footer2}"></div>
+   <div th:insert="~{reusable-code/footer1}"></div>
    </footer>
 </body>
 </html>
