@@ -36,5 +36,23 @@ public class TransactionController
 	  model.addAttribute("info",info);
 	  return "transaction-mng/successDeposite";
   }
+  @GetMapping("/withdraw")
+  public String withdraw()
+  {
+	   return "transaction-mng/withdraw";
+  }
+  @PostMapping("/success-withdraw")
+  public String successWithdraw(@SessionAttribute long accountNo, double money,Model model)
+  {
+	  TransactionInfo  info=accountService.successWithdraw(accountNo,money);
+	  if(info!=null)
+	  {
+		  model.addAttribute("info",info);
+		  return "transaction-mng/successWithdraw";
+	  }
+	  model.addAttribute("msg","Insufficient funnds");
+	  return "transaction-mng/withdraw";
+	  
+  }
   
 }

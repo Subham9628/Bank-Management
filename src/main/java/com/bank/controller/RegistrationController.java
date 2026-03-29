@@ -40,4 +40,5 @@ public class RegistrationController
 	   return "registration/registration-success";
    }
    
+   
 }

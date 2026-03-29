@@ -14,5 +14,7 @@ public interface AccountsServices
 
    TransactionInfo successDep(long accountNo, double money);
 
+   TransactionInfo successWithdraw(long accountNo, double money);
+
 
 }

@@ -9,10 +9,12 @@ import com.bank.entity.TransactionInfo;
 import com.bank.repository.AccountRepository;
 
 @Service
-public class AccountsServicesimp implements AccountsServices
+public class AccountsServicesImp implements AccountsServices
 {
     @Autowired
     private AccountRepository accountRepo;
+    @Autowired
+    private TransactionInfoServices trnService;
 	@Override
 	public Accounts save(Accounts account) 
 	{
@@ -45,5 +47,19 @@ public class AccountsServicesimp implements AccountsServices
 	    info.setType("Credit");
 	    info.setTime(new DateAndTime().getTime());
 	    return info;
+	}
+	@Override
+	public TransactionInfo successWithdraw(long accountNo, double money) 
+	{
+		Accounts account=accountRepo.findById(accountNo).orElse(null);
+		double amount=account.getAmount();
+		if(money<=amount)
+		{
+		   TransactionInfo info=trnService.addInfo(accountNo,money);
+		   account.setAmount(amount-money);
+		   accountRepo.save(account);
+		   return info;
+		}
+		return null;
 	}
 }
