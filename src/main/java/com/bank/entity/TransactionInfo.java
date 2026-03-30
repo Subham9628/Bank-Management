@@ -1,4 +1,5 @@
 package com.bank.entity;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,6 +26,12 @@ public class TransactionInfo
    private String toAccount;
    public  long getFromAccount() {
 	return fromAccount;
+   }
+   public long getTid() {
+	return tid;
+}
+   public void setTid(long tid) {
+	this.tid = tid;
    }
    public void setFromAccount(long fromAccount) {
 	this.fromAccount = fromAccount;
@@ -59,6 +66,7 @@ public class TransactionInfo
    public void setToAccount(String toAccount) {
 	this.toAccount = toAccount;
    }
+  
    
 }
    

@@ -89,11 +89,11 @@
          <option value="closecustomer.jsp">Close Customer Account</option>
        </select> 
       <select onchange="location=this.value"> 
-      <option>Transaction</option>
+      <option th:value="@{/}">Transaction</option>
         <option th:value="@{/deposite-money}">Deposite Money</option>
          <option th:value="@{/withdraw}">Withdraw Money</option>
           <option value="fundtransfer.jsp">Fund Transfer</option>
-           <option value="ministatements.jsp">Mini Statement</option>
+           <option th:value="@{statement}">Mini Statement</option>
        </select>
       <a th:href="@{/balance}">Balance Enquiry</a>
       <a href="" class="logout">Logout</a>

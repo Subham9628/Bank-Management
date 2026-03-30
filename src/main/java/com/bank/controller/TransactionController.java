@@ -1,5 +1,8 @@
 package com.bank.controller;
 
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,11 +12,15 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.bank.entity.TransactionInfo;
 import com.bank.service.AccountsServices;
+import com.bank.service.TransactionInfoServices;
 @Controller
 public class TransactionController 
 {
-	@Autowired 
+	@Autowired
 	private AccountsServices accountService;
+	
+	@Autowired
+	private TransactionInfoServices trnService;
   @GetMapping("/balance")
   public String getBalance( @SessionAttribute long accountNo , Model model )
   {
@@ -24,7 +31,6 @@ public class TransactionController
   @GetMapping("/deposite-money")
   public String deposite()
   {
-	  System.out.print("subh");
 	 return "transaction-mng/deposite";
   }
  
@@ -44,6 +50,7 @@ public class TransactionController
   @PostMapping("/success-withdraw")
   public String successWithdraw(@SessionAttribute long accountNo, double money,Model model)
   {
+	  System.out.println("subham");
 	  TransactionInfo  info=accountService.successWithdraw(accountNo,money);
 	  if(info!=null)
 	  {
@@ -52,7 +59,14 @@ public class TransactionController
 	  }
 	  model.addAttribute("msg","Insufficient funnds");
 	  return "transaction-mng/withdraw";
+  }
+  @GetMapping("/statement")
+  public String statement(@SessionAttribute long accountNo ,Model model)
+  {
+	  List<TransactionInfo> list=trnService.getList(accountNo);
 	  
+	  model.addAttribute("trnInfo",list);
+	  return "transaction-mng/miniStatements";
   }
   
 }

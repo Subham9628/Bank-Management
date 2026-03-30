@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.bank.entity.Accounts;
 import com.bank.entity.Users;
-import com.bank.service.AccountsServices;
 import com.bank.service.UsersServices;
 
 @Controller
@@ -17,8 +16,6 @@ public class RegistrationController
 {
 	@Autowired
     private UsersServices usersService;
-	@Autowired
-	private AccountsServices accountServcies;
 	@Autowired
 	//private AccountRepository accountRepo;
    @GetMapping("/registration")
@@ -29,16 +26,8 @@ public class RegistrationController
    @PostMapping("/registration-success")
    public String success(@ModelAttribute Users user,Model model)
    {
-	   usersService.save(user);
-       Accounts account=new Accounts();
-       String userId=user.getUserId();
-       account.setAmount(0);
-       account.setUserId(userId);
-	   Accounts accountsave=accountServcies.save(account);
-	   System.out.println(accountsave.getAccountNo());
-	   model.addAttribute("AccountNo",accountsave.getAccountNo());
+	   Accounts account=usersService.save(user);
+	   model.addAttribute("AccountNo",account.getAccountNo());
 	   return "registration/registration-success";
-   }
-   
-   
+   }  
 }

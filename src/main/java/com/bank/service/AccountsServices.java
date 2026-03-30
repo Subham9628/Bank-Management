@@ -2,11 +2,12 @@ package com.bank.service;
 
 import com.bank.entity.Accounts;
 import com.bank.entity.TransactionInfo;
+import com.bank.entity.Users;
 
 public interface AccountsServices 
 {
 
-	Accounts save(Accounts account);
+	Accounts save(Users users);
 
 	long getAccountNo(String userId);
 

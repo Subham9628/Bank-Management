@@ -14,11 +14,12 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class LoginController 
 {
-   @Autowired
-   private UsersServices userService;
+	@Autowired
+	private  AccountsServices accountService; 
+	
+	@Autowired
+	private  UsersServices userService;
    
-   @Autowired
-   private AccountsServices accountService; 
    @GetMapping("/login-page")
    public String login()
    {

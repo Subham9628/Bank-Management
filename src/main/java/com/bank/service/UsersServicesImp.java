@@ -3,19 +3,23 @@ package com.bank.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.bank.entity.Accounts;
 import com.bank.entity.Users;
 import com.bank.repository.UsersRepository;
 
 @Service
 public class UsersServicesImp  implements UsersServices
 {
-   @Autowired
+	@Autowired
    private UsersRepository userRepo;
-   
+	@Autowired
+   private AccountsServices accountService;
    @Override
-   public void save(Users user) 
+   public Accounts save(Users user) 
    {
-       userRepo.save(user);
+       Users users=userRepo.save(user);
+       return accountService.save(users);
+       
    }
    public boolean validateUser(String userId, String password) 
    {

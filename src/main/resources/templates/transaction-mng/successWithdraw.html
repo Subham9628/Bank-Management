@@ -1,4 +1,4 @@
- <html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <style>
 .container
 { 
@@ -83,17 +83,17 @@ td ,th{
             		  </tr>
             		  <tr>
             		    <th>Date and Time</th>
-            		    <td><span th:text=${inf.date}></span><span style='margin-left:4px' th:text="${info.time}"></span></td>
+            		    <td><span th:text=${info.date}></span><span style='margin-left:4px' th:text="${info.time}"></span></td>
             		  </tr>
             		  <tr>
             		    <th>Transaction Type</th>
             		    <td class="text-success">Debit</td>
             		  </tr>
             		    <tr>
-            		    <th><a href="@{/}" class="home">Back Home</a></th>
+            		    <th><a th:href="@{/}" class="home">Back Home</a></th>
             		    <td><a href="" class="download">Download Receipt</a></td>
             		  </tr>
-            		  
+            
             		</table>
             			
             </div>

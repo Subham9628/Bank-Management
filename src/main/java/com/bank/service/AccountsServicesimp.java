@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bank.entity.Accounts;
-import com.bank.entity.DateAndTime;
 import com.bank.entity.TransactionInfo;
+import com.bank.entity.Users;
 import com.bank.repository.AccountRepository;
 
 @Service
@@ -13,11 +13,15 @@ public class AccountsServicesImp implements AccountsServices
 {
     @Autowired
     private AccountRepository accountRepo;
+   
     @Autowired
     private TransactionInfoServices trnService;
 	@Override
-	public Accounts save(Accounts account) 
+	public Accounts save(Users user) 
 	{
+		Accounts account=new Accounts();
+		account.setAmount(0);
+		account.setUserId(user.getUserId());
 		return accountRepo.save(account);
 	}
 	@Override
@@ -39,13 +43,8 @@ public class AccountsServicesImp implements AccountsServices
 	    double amount=account.getAmount()+money;
 	    account.setAmount(amount);
 	    accountRepo.save(account);
-	    TransactionInfo info=new TransactionInfo();
+	    TransactionInfo info=trnService.addInfo(accountNo, money,"Credit");
 	    info.setAmount(money);
-	    info.setDate(new DateAndTime().getDate());
-	    info.setFromAccount(accountNo);
-	    info.setToAccount("self");
-	    info.setType("Credit");
-	    info.setTime(new DateAndTime().getTime());
 	    return info;
 	}
 	@Override
@@ -55,7 +54,7 @@ public class AccountsServicesImp implements AccountsServices
 		double amount=account.getAmount();
 		if(money<=amount)
 		{
-		   TransactionInfo info=trnService.addInfo(accountNo,money);
+		   TransactionInfo info=trnService.addInfo(accountNo,money,"Debit");
 		   account.setAmount(amount-money);
 		   accountRepo.save(account);
 		   return info;

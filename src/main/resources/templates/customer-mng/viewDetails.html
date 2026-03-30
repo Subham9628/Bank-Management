@@ -1,0 +1,96 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+.container
+{ 
+  
+  border:10px solid lightgreen;
+  border-radius:20px;
+  height:auto;
+  width:600px;
+  margin:30px 500px 50px 500px;
+  background-color: white;
+}
+.head
+{   
+    margin:0px;
+    text-align:center;
+    padding:5px ;
+    background-color: green;
+    font-size:30px;
+}
+ th{
+  width:200px;
+  padding:5px 20px 5px 0px;
+  font-size:20px;
+  text-align: left;
+ }
+ td
+ {
+   padding:5px 20px 5px 0px;
+   font-size:20px;
+   text-align: left;
+   color:green;
+ }
+ .table
+ {
+   width:600px;
+   margin-bottom:20px;  
+ }
+ .home
+ {
+   background-color: gray;
+   padding:5px 10px;
+   border-radius:20px;
+   color:black;
+    text-decoration:none;
+    margin-left:20px;
+ }
+ 
+</style>
+
+<body>
+       <div th:insert="~{reusable-code/navbar}"></div>
+       <div class="container">
+   		    
+               <p class=head> View Account holder details</p>
+            
+             		<table class="table" >
+            		  <tr>
+            		    <th> Account Number</th>
+            		    <td><%= accountno%></td>
+            		  </tr>
+            		 
+            		  <tr>
+            		    <th>Account holder</th>
+            		    <td><%= session.getAttribute("fullname")%></td>
+            		  </tr>
+            		   <tr>
+            		    <th>Mobile Number</th>
+            		    <td><%=rst.getString("mobilenumber") %></td>
+            		  </tr>
+            		    <tr>
+            		    <th>Email</th>
+            		    <td><%=rst.getString("emailaddress") %></td>
+            		  </tr>
+            		  <tr>
+            		    <th>Address</th>
+            		    <td><%=rst.getString("address") %></td>
+            		  </tr>
+            		  <tr>
+            		    <th>Current balance</th>
+            		    <td >&#8377;<%=amount%></td>
+            		  </tr>
+           		      <tr>
+           		        <th></th>
+            		    <th><a th:href="@{/}" class="home">Back Home</a></th>
+            		  </tr> 
+            		</table>
+      
+            </div>
+			<div th:insert="~{reusable-code/footer2}"></div>
+			<div th:insert="~{reusable-code/footer1}"></div>
+   </body>
+</html>
+   
+   

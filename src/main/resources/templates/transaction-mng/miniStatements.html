@@ -1,0 +1,68 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+ td{
+  text-align: left;
+  font-size: 25px;
+  padding:10px 10px 10px 20px;
+  color:green;
+ }
+ th
+ {
+    
+    background-color: green;
+    font-size:30px;
+    padding:10px 10px 10px 0px;
+   
+ }
+ .container
+ {
+    margin:50px 0px 100px 150px;
+    height:auto;
+    width:1200px;
+    border:5px solid lightgreen;
+    background-color: white;
+  
+ }
+ table
+ {
+   width:1200px;
+   
+ }
+ .text-success
+ {
+    color:green;
+ }
+  .text-danger
+ {
+    color:red;
+ }
+</style>
+ <div th:insert="~{reusable-code/navbar}"></div>
+<body class="bg-light text-center">
+      <div class="container">
+       <table cellspacing="0" >
+       <thead>
+        <tr>
+         <th>S.No</th><th>Trn ID</th><th>From Account</th><th>To Account</th>
+         <th>Amount</th><th>Date</th><th>Time</th><th>Type</th>
+        </tr>
+       </thead>
+       <tbody>
+		<tr th:each="info,stat:${trnInfo}">
+		          <td th:text="${stat.count}"></td>
+				  <td th:text="${info.tid}"></td>
+				  <td th:text="${info.fromAccount}"></td>
+				  <td th:text="${info.toAccount}"></td>
+				  <td th:class="${info.type=='Credit'}?'text-success':'text-danger'" th:text="${info.amount}"></td>
+	              <td th:text="${info.date}"></td>
+				  <td th:text="${info.time}"></td>
+	              <td th:class="${info.type=='Credit'}?'text-success' :'text-danger'" th:text="${info.type}"></td>	
+		</tr>
+       </tbody>
+      </table>	
+  </div> 
+  <div th:insert="~{reusable-code/footer2}"></div>
+  <div th:insert="~{reusable-code/footer1}"></div>
+  </body>
+  </html>

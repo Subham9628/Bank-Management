@@ -1,5 +1,7 @@
 package com.bank.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ public class TransactionInfoServicesImp implements TransactionInfoServices
 	private TransactionInfoRepository trnRepo;
 	
 	@Override
-	public TransactionInfo addInfo(long accountNo, double money) 
+	public TransactionInfo addInfo(long accountNo, double money,String type) 
 	{
 		TransactionInfo info=new TransactionInfo();
 		info.setAmount(money);
@@ -24,9 +26,15 @@ public class TransactionInfoServicesImp implements TransactionInfoServices
 		info.setTime(new DateAndTime().getTime());
 		info.setFromAccount(accountNo);
 	    info.setToAccount("Self");
-     	info.setType("Debit");
+     	info.setType(type);
      	trnRepo.save(info);
      	return info;
+	}
+
+	@Override
+	public List<TransactionInfo> getList(long accountNo) 
+	{
+		return trnRepo.findAllByFromAccount(accountNo);
 	}
    
 }
