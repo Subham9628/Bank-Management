@@ -33,8 +33,8 @@
            <div th:insert="~{reusable-code/navbar}"></div>
  		   <div class="container">
 					<p class="card-title">Your Account Balance</p>
-					<p class="text-success" th:text="${amount}">	&#8377;</p>
-					<button type="button" onclick="history.back()">Back</button>
+					<p class="text-success" th:text="&#8377+${amount}"></p>
+					<button type="button" th:onclick= "|window.location.href='@{/}'|">Back Home</button>
 				</div>
         <div th:insert="~{reusable-code/footer2}"></div>
 		<div th:insert="~{reusable-code/footer1}"></div>  

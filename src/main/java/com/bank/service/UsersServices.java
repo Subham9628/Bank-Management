@@ -11,5 +11,7 @@ public interface UsersServices
 	boolean validateUser(String userId, String password);
 
 	String getUserName(String userId);
+
+	Users getDetails(String userId);
    
 }

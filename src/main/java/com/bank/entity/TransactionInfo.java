@@ -11,10 +11,10 @@ import jakarta.persistence.Table;
 public class TransactionInfo 
 {
    @Id
-   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "acc_seq")
+   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "trn_seq")
    @SequenceGenerator(
-           name = "acc_seq",
-           sequenceName = "account_sequence",
+           name = "trn_seq",
+           sequenceName = "Trn_sequence",
            initialValue = 1000000000,
            allocationSize = 1)
    private long tid;

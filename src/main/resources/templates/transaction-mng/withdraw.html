@@ -67,11 +67,11 @@
   <div th:insert="~{reusable-code/navbar}"></div>
      <form action="success-withdraw" method="post">
     <div class="space">
-		<div th:text="${msg}" style="color: red; font-size: 20px; font-weight: bold;"></div>
+		<div th:text="${msg}" style="color: red; font-size: 30px;margin-bottom: 10px; font-weight: bold;"></div>
         <div class="head"><h1 style="color:blue;">Withdraw Money</h1></div>
        <label>Enter Money</label>  
        <input  type="number" placeholder="Enter Money" name="money" required><br>
-        <button type="button" onclick= "history.back()" id="back">Back </button>
+        <button type="button" th:onclick= "|window.location.href='@{/}'|" id="back">Back </button>
        <button type="submit" value="send" id="withdraw">Withdraw </button>
     </div>
 	

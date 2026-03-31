@@ -31,6 +31,11 @@ public class UsersServicesImp  implements UsersServices
 	  Users user=userRepo.findById(userId).orElse(null);
 	  return user.getFullName();
    }
+   @Override
+   public Users getDetails(String userId) 
+   {
+	 return userRepo.findById(userId).orElse(null);
+   }
    
    
 }

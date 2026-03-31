@@ -84,7 +84,7 @@
     <nav class="login">
           <select onchange="location=this.value">
           <option >Customer Management</option>
-          <option value="viewdetails.jsp">View Customer Details</option>
+          <option th:value="@{/view-details}">View Customer Details</option>
          <option value="updatecustomer.jsp">Update Customer Information</option>
          <option value="closecustomer.jsp">Close Customer Account</option>
        </select> 
@@ -93,7 +93,7 @@
         <option th:value="@{/deposite-money}">Deposite Money</option>
          <option th:value="@{/withdraw}">Withdraw Money</option>
           <option value="fundtransfer.jsp">Fund Transfer</option>
-           <option th:value="@{statement}">Mini Statement</option>
+           <option th:value="@{/statement}">Mini Statement</option>
        </select>
       <a th:href="@{/balance}">Balance Enquiry</a>
       <a href="" class="logout">Logout</a>

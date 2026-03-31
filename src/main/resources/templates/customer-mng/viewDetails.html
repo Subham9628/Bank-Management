@@ -58,28 +58,28 @@
              		<table class="table" >
             		  <tr>
             		    <th> Account Number</th>
-            		    <td><%= accountno%></td>
+            		    <td th:text="${session.accountNo}"></td>
             		  </tr>
             		 
             		  <tr>
             		    <th>Account holder</th>
-            		    <td><%= session.getAttribute("fullname")%></td>
+            		    <td th:text="${session.userName}"></td>
             		  </tr>
             		   <tr>
             		    <th>Mobile Number</th>
-            		    <td><%=rst.getString("mobilenumber") %></td>
+            		    <td th:text="${view.mobileNo}"></td>
             		  </tr>
             		    <tr>
-            		    <th>Email</th>
-            		    <td><%=rst.getString("emailaddress") %></td>
+				    <th>Email ID</th>
+            		    <td th:text="${view.emailId}">Email</td>
             		  </tr>
             		  <tr>
             		    <th>Address</th>
-            		    <td><%=rst.getString("address") %></td>
+            		     <td th:text="${view.address}"></td>
             		  </tr>
             		  <tr>
             		    <th>Current balance</th>
-            		    <td >&#8377;<%=amount%></td>
+            		    <td th:text="&#8377+ ${balance}"></td>
             		  </tr>
            		      <tr>
            		        <th></th>

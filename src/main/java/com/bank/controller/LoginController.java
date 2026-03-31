@@ -37,6 +37,7 @@ public class LoginController
 		   long accountNo=accountService.getAccountNo(userId);
 		   session.setAttribute("userName",userName);
 		   session.setAttribute("accountNo",accountNo);
+		   session.setAttribute("userId", userId);
 		   return "home/home"; 
 	   }
 	   model.addAttribute("msg", "UserId and password is incorrect");

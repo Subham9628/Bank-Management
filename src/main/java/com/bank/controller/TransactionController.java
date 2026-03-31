@@ -1,6 +1,7 @@
 package com.bank.controller;
 
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,11 @@ public class TransactionController
   @PostMapping("/success-deposite")
   public String successDeposite(@SessionAttribute long accountNo, double money,Model model)
   {
+	  if(money<100)
+	  {
+		  model.addAttribute("msg", "Deposite minimum 100 Rs ");
+		  return "transaction-mng/deposite";
+	  }
 	  TransactionInfo  info=accountService.successDep(accountNo,money);
 	  model.addAttribute("money",money);
 	  model.addAttribute("info",info);
@@ -50,7 +56,16 @@ public class TransactionController
   @PostMapping("/success-withdraw")
   public String successWithdraw(@SessionAttribute long accountNo, double money,Model model)
   {
-	  System.out.println("subham");
+	  if(money<100)
+	  {
+		  model.addAttribute("msg", "Withdraw minimum 100 Rs ");
+		  return "transaction-mng/withdraw";
+	  }
+	  if(money>100000)
+	  {
+		  model.addAttribute("msg", "Withdraw maximum 1Lakh Rs ");
+		  return "transaction-mng/withdraw";
+	  }
 	  TransactionInfo  info=accountService.successWithdraw(accountNo,money);
 	  if(info!=null)
 	  {
@@ -64,7 +79,7 @@ public class TransactionController
   public String statement(@SessionAttribute long accountNo ,Model model)
   {
 	  List<TransactionInfo> list=trnService.getList(accountNo);
-	  
+	  Collections.reverse(list);
 	  model.addAttribute("trnInfo",list);
 	  return "transaction-mng/miniStatements";
   }
