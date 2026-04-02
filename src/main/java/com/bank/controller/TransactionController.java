@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.bank.entity.Accounts;
 import com.bank.entity.TransactionInfo;
 import com.bank.service.AccountsServices;
 import com.bank.service.TransactionInfoServices;
@@ -82,6 +83,45 @@ public class TransactionController
 	  Collections.reverse(list);
 	  model.addAttribute("trnInfo",list);
 	  return "transaction-mng/miniStatements";
+  }
+  @GetMapping("/transfer")
+  public String transferPage()
+  {
+	  return "transaction-mng/fundTransfer";
+  }
+  @PostMapping("/transfer-success")
+  public String trnasfer(long rAccountNo, @SessionAttribute long accountNo,double money,Model model)
+  {
+	  model.addAttribute("accountNo",rAccountNo);
+	  model.addAttribute("money", money);
+	  if(rAccountNo==accountNo)
+	  {
+		  model.addAttribute("msg","You can not transfer money own account");
+		  return "transaction-mng/fundTransfer";
+	  }
+	  Accounts account=accountService.getAccout(rAccountNo);
+	  if(account==null)
+	  {
+		  model.addAttribute("msg","Recipient account not found");
+		  
+		  return "transaction-mng/fundTransfer";
+	  }
+	  if(money<100)
+	  {
+		  model.addAttribute("msg1","Transfer amount must be at least 100 Rs");
+		  return "transaction-mng/fundTransfer";
+	  }
+	  TransactionInfo trnInfo=accountService.transferFund(account,accountNo,money);
+	  if(trnInfo!=null)
+	  {
+		  model.addAttribute("info",trnInfo);
+		  return "transaction-mng/transferSuccess";
+	  }
+	  else
+	  {
+		  model.addAttribute("msg1", "Insufficient funds");
+		  return "transaction-mng/fundTransfer";
+	  }
   }
   
 }

@@ -11,6 +11,8 @@ public interface TransactionInfoServices{
 
 	List<TransactionInfo> getList(long accountNo);
 
+    TransactionInfo addInfo(long rAccountNo, long tAccountNo, double money);
+
 	
 
 }

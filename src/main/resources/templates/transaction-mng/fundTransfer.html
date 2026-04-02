@@ -1,0 +1,84 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Management Dashboard</title>
+  <style>
+  .space
+  { 
+     background-color:white;
+     margin:30px 0px 100px 500px;
+     text-align:center;
+     height:auto;
+     width:500px;
+     border:10px solid green;
+     border-radius:20px;
+     padding-bottom: 20px;
+  }
+  .head
+  {
+    margin:0px;
+    padding:5px ;
+    background-color: lightgreen;
+    margin-bottom: 10px;
+  }
+  .space label
+  { 
+     font-size:30px;
+     
+  }
+  .space input
+  {
+     font-size:30px;
+     border-radius:20px;
+     text-align:center;
+     margin-bottom: 20px;
+     
+     
+  }
+  #transfer
+  {
+     background-color: blue;
+     padding:10px 20px;
+     border-radius:20px;
+     font-size:20px;
+     text-decoration: none;
+  }
+  #transfer:hover
+  {
+        background-color: navy;
+  }
+  #back
+  {
+    margin-right:70px;
+    background-color: gray;
+    padding:10px 20px;
+    border-radius:20px;
+    font-size:20px;
+    text-decoration: none;
+  }
+  
+  </style>
+</head>
+<body>
+      <div th:insert="~{reusable-code/navbar}"></div>
+      <form action="transfer-success" method="post">
+     <div class="space">
+        <div class="head"><h1 style="color:blue;">Transfer Money</h1></div>
+        <label>Enter Account Number</label>  
+        <input  type="number" placeholder="Account Number" name="rAccountNo" th:value="${accountNo}" required>
+        <p style="font-size: 25px; font-weight: bold; color: red;" th:text="${msg}"></p>
+        <label>Enter Money</label>  
+        <input  type="number" placeholder="Enter Money" name="money" th:value="${money}" required>
+         <p style="font-size: 25px; font-weight: bold; color: red;"  th:text="${msg1}"></p>
+        <a th:href=@{/} id="back">Back Home </a>
+        <button type="submit" value="send" id="transfer">Transfer </button>
+    </div>
+    </form>
+   <footer>
+	<div th:insert="~{reusable-code/footer2}"></div>
+	  <div th:insert="~{reusable-code/footer1}"></div>
+   </footer>
+</body>
+</html>

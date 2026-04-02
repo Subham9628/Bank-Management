@@ -17,6 +17,10 @@ public interface AccountsServices
 
    TransactionInfo successWithdraw(long accountNo, double money);
 
+   Accounts getAccout(long tAccountNo);
+
+   TransactionInfo transferFund(Accounts account, long accountNo,double money);
+
    
 
 

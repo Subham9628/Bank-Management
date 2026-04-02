@@ -61,5 +61,22 @@ public class AccountsServicesImp implements AccountsServices
 		}
 		return null;
 	}
+	@Override
+	public Accounts getAccout(long tAccountNo) 
+	{
+		return accountRepo.findById(tAccountNo).orElse(null);
+	}
+	@Override
+	public TransactionInfo transferFund(Accounts rAccount, long accountNo,double money) 
+	{
+		Accounts account=accountRepo.findById(accountNo).orElse(null);
+		if(account.getAmount()<money)return null;
+		rAccount.setAmount(rAccount.getAmount()+money);
+		account.setAmount(account.getAmount()-money);
+		accountRepo.save(account);
+		accountRepo.save(rAccount);
+		return trnService.addInfo(rAccount.getAccountNo(),accountNo,money);
+		
+	}
 	
 }

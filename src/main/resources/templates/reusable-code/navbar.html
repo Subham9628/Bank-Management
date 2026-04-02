@@ -92,11 +92,11 @@
       <option th:value="@{/}">Transaction</option>
         <option th:value="@{/deposite-money}">Deposite Money</option>
          <option th:value="@{/withdraw}">Withdraw Money</option>
-          <option value="fundtransfer.jsp">Fund Transfer</option>
+          <option th:value="@{/transfer}">Fund Transfer</option>
            <option th:value="@{/statement}">Mini Statement</option>
        </select>
       <a th:href="@{/balance}">Balance Enquiry</a>
-      <a href="" class="logout">Logout</a>
+      <a th:href="@{/logout}" class="logout">Logout</a>
     </nav>
   </header>
 </body>

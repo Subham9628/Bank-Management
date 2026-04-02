@@ -36,5 +36,28 @@ public class TransactionInfoServicesImp implements TransactionInfoServices
 	{
 		return trnRepo.findAllByFromAccount(accountNo);
 	}
-   
+
+	@Override
+	public TransactionInfo addInfo(long rAccountNo, long tAccountNo, double money)
+    {
+		String date=new DateAndTime().getDate();
+		String time=new DateAndTime().getTime();
+		TransactionInfo info1=new TransactionInfo();
+		info1.setAmount(money);
+		info1.setDate(date);
+		info1.setTime(time);
+		info1.setFromAccount(tAccountNo);
+	    info1.setToAccount(rAccountNo+"");
+     	info1.setType("Debit");
+     	trnRepo.save(info1);
+		TransactionInfo info2=new TransactionInfo();
+		info2.setAmount(money);
+		info2.setDate(date);
+		info2.setTime(time);
+		info2.setFromAccount(tAccountNo);
+	    info2.setToAccount(rAccountNo+"");
+     	info2.setType("Credit");
+     	trnRepo.save(info2);
+		return info1;
+	}
 }

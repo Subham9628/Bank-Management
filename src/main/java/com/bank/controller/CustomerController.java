@@ -10,6 +10,8 @@ import com.bank.entity.Users;
 import com.bank.service.AccountsServices;
 import com.bank.service.UsersServices;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class CustomerController 
 {
@@ -17,6 +19,12 @@ public class CustomerController
 	 private UsersServices userService;
 	 @Autowired
 	 private AccountsServices accountService;
+	 @GetMapping("/logout")
+	 public String logout(HttpSession session)
+	 {
+		 session.invalidate();
+		 return "user-login/login-form";
+	 }
    @GetMapping("/view-details")
    public String view(@SessionAttribute String userId,@SessionAttribute long accountNo,Model model)
    {
